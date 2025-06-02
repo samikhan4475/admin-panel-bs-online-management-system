@@ -1,0 +1,6 @@
+export * from './dashboard'
+export * from './order'
+export * from './product'
+export * from './user'
+export * from './analytics'
+export * from './main-component'
