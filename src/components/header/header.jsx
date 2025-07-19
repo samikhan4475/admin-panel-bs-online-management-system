@@ -1,16 +1,16 @@
 import React from 'react';
-// import { BsPersonCircle } from "react-icons/bs";
 import { FiBell } from "react-icons/fi";
 import { CgSearch } from "react-icons/cg";
 import { BsEnvelopeFill } from "react-icons/bs";
 import { Hamburger } from '../hamburger/hamburger';
 import { Row, Col } from 'react-bootstrap';
 import { DropdownMenu } from '../dropdown';
-
+// import { ActiveContext } from '../../App'; // Adjust the import path as necessary
+// import { useContext } from "react";
 
 
 const Header = ({ active, setActive }) => {
-
+    // const { user } = useContext(ActiveContext);
     return (
         <>
             <Row className='p-3' style={{ backgroundColor: 'lightgray' }}>

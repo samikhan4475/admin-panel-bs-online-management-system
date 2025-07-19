@@ -1,40 +1,86 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import React, { useState, useContext } from 'react';
+import { TextField } from '../common/reusable';
+import { Form, Formik } from 'formik';
+import { initialValuesLogIn, validationSchemaLogIn } from '../common/schema';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { ActiveContext } from '../../App'; // Adjust the import path as necessary
+import 'react-toastify/dist/ReactToastify.css'; // Ensure toast styles are imported
 
 const LoginForm = () => {
+    const { setUser } = useContext(ActiveContext);
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (values) => {
+        setLoading(true);
+        try {
+            const res = await axios.post('http://localhost:5000/api/auth/login', values);
+            if (res.status === 200) {
+                const { token, user: userData } = res.data;
+                setUser(userData);
+                localStorage.setItem('accessToken', token);
+                localStorage.setItem('user', JSON.stringify(userData));
+                toast.success('Login successful!');
+                navigate('/dashboard');
+            } else {
+                toast.error("Invalid username or password");
+            }
+        } catch (error) {
+            if (error.response) {
+                const message =
+                    error.response.data.message ||
+                    "Login failed. Please check your credentials.";
+                toast.error(message);
+            } else if (error.request) {
+                toast.error("No response from server. Please try again later.");
+            } else {
+                toast.error("An unexpected error occurred.");
+            }
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '90vh' }}>
             <Row className="p-4 shadow-lg rounded-4" style={{ backgroundColor: '#f0f8ff', maxWidth: '400px', width: '100%' }}>
                 <Col>
-                    <h2 className="text-center mb-4 text-primary">Login</h2>
-                    <Form>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
-                            <Link to={'/email' }><span>Forgot password</span></Link>
-                        </Form.Group>
-                        <div className="d-flex align-items-center justify-content-between">
-                            <Link to="/dashboard">
-                                <Button variant="primary" type="submit">
-                                    Login
-                                </Button>
-                            </Link>
-                            <span>
-                                <Link to={"/SignupForm"}>
-                                    Register
-                                </Link>
-                            </span>
+                    <h2 className="text-center mb-4 text-primary">Log In</h2>
+                    <Formik
+                        initialValues={initialValuesLogIn}
+                        validationSchema={validationSchemaLogIn}
+                        onSubmit={handleSubmit}
+                    >
+                        <Form>
+                            <TextField label='Email address' type='email' placeholder='Enter email' name='email' />
+                            <TextField label='Password' type='password' placeholder='Password' name='password' />
+                            <Button variant="primary" className="w-100 mt-3 d-flex justify-content-center align-items-center" type="submit" disabled={loading}>
+                                {loading ? (
+                                    <>
+                                        <Spinner animation="border" size="sm" role="status" className="me-2" />
+                                        Logging in...
+                                    </>
+                                ) : (
+                                    'Login'
+                                )}
+                            </Button>
+                        </Form>
+                    </Formik>
+                    <div className='d-flex flex-column gap-3 mt-4'>
+                        <div className='text-center font-weight-bold font-size-20'>
+                            <Link to="/email">Forgot password</Link>
                         </div>
-                    </Form>
+                        <div className='text-center font-weight-bold font-size-20'>
+                            Don't have an account? <Link to="/SignupForm">Sign Up Now</Link>
+                        </div>
+                    </div>
                 </Col>
             </Row>
         </Container>

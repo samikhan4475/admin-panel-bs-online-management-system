@@ -9,7 +9,10 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "apexcharts": "^4.7.0",
+    "axios": "^1.10.0",
     "bootstrap": "^5.3.6",
+    "firebase": "^11.9.1",
+    "formik": "^2.4.6",
     "leaflet": "^1.9.4",
     "react": "^19.1.0",
     "react-apexcharts": "^1.7.0",
@@ -20,8 +23,11 @@
     "react-leaflet": "^5.0.0",
     "react-router-dom": "^7.6.0",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.17.0",
+    "react-toastify": "^11.0.5",
     "recharts": "^2.15.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.6.1"
   },
   "scripts": {
     "start": "react-scripts start",

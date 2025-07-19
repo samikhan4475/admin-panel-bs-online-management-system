@@ -1,3 +1,2 @@
-export * from './email'
-export * from './code-verification'
-export * from './new-password'
+export * from './reset-email'
+export * from './reset-password'

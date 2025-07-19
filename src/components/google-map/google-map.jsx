@@ -17,7 +17,7 @@ const GoogleMaps = ()=>{
     googleMapsApiKey: 'AIzaSyAc8gk7qNtsjTFl1VlPVX2b5yMQI-qm6S8',
   })
 
-  const [map, setMap] = React.useState(null)
+  const [, setMap] = React.useState(null)
 
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center)
