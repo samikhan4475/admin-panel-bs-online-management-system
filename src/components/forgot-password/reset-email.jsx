@@ -19,7 +19,7 @@ const Email = () => {
         // Here you would typically handle the form submission, e.g., sending a request to your backend
         setLoading(true);
         try {
-            const response = await axios.post("https://backend-code-mz3qsr6jo-awais-12345s-projects.vercel.app/api/auth/forgotpassword", values);
+            const response = await axios.post("https://backend-code-seven-orpin.vercel.app/api/auth/forgotpassword", values);
             if (response.status === 200) {
                 toast.success("Reset link sent to your email!");
             } else {

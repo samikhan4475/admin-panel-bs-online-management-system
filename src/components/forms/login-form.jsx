@@ -21,7 +21,7 @@ const LoginForm = () => {
     const handleSubmit = async (values) => {
         setLoading(true);
         try {
-            const res = await axios.post('https://backend-code-mz3qsr6jo-awais-12345s-projects.vercel.app/api/auth/login', values);
+            const res = await axios.post('https://backend-code-seven-orpin.vercel.app/api/auth/login', values);
             if (res.status === 200) {
                 const { token, user: userData } = res.data;
                 setUser(userData);
