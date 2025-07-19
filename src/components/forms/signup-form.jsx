@@ -18,7 +18,7 @@ const SignupForm = () => {
     const handleSubmit = async (values) => {
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/register', values);
+            const response = await axios.post('https://backend-code-mz3qsr6jo-awais-12345s-projects.vercel.app/api/auth/register', values);
             if (response.status === 201) {
                 toast.success("Registration submitted successfully!");
                 navigate("/");
