@@ -15,31 +15,35 @@ import React, { useState } from 'react';
 const SignupForm = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+
     const handleSubmit = async (values) => {
         setLoading(true);
         try {
-            const response = await axios.post('https://backend-code-seven-orpin.vercel.app/api/auth/register', values);
-            if (response.status === 201) {
-                toast.success("Registration submitted successfully!");
-                navigate("/");
-            } else {
-                toast.error("Invalid username or password");
+            const res = await axios.post("https://backend-fyp-three.vercel.app/api/auth/register",
+                values);
+            if (res.status === 201) {
+                const { token, user: userData } = res.data;
+                localStorage.setItem('accessToken', token);
+                localStorage.setItem('user', JSON.stringify(userData));
+                toast.success('Register successful!');
+                navigate('/');
             }
-        } catch (error) {
-            if (error.response) {
-                const message =
-                    error.response.data.message ||
-                    "Login failed. Please check your credentials.";
-                toast.error(message);
-            } else if (error.request) {
-                toast.error("No response from server. Please try again later.");
-            } else {
-                toast.error("An unexpected error occurred.");
-            }
+        // } catch (error) {
+        //     if (error.response) {
+        //         const message =
+        //             error.response.data.message ||
+        //             "Login failed. Please check your credentials.";
+        //         toast.error(message);
+        //     } else if (error.request) {
+        //         toast.error("No response from server. Please try again later.");
+        //     } else {
+        //         toast.error("An unexpected error occurred.");
+        //     }
         } finally {
             setLoading(false);
         }
-    }
+    };
+
     return (
         <div>
             <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '90vh' }}>
