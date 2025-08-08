@@ -19,7 +19,7 @@ const Email = () => {
         // Here you would typically handle the form submission, e.g., sending a request to your backend
         setLoading(true);
         try {
-            const response = await axios.post("https://backend-fyp-three.vercel.app//api/auth/forgotpassword",
+            const response = await axios.post("http://localhost:5000/api/auth/forgotpassword",
                 values);
             if (response.status === 200) {
                 toast.success("Reset link sent to your email!");

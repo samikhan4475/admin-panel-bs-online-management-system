@@ -19,7 +19,7 @@ const SignupForm = () => {
     const handleSubmit = async (values) => {
         setLoading(true);
         try {
-            const res = await axios.post("https://backend-fyp-three.vercel.app/api/auth/register",
+            const res = await axios.post("http://localhost:5000/api/auth/register",
                 values);
             if (res.status === 201) {
                 const { token, user: userData } = res.data;

@@ -24,7 +24,7 @@ const NewPassword = () => {
         setLoading(true);
         console.log('Form submitted with values:', values);
         try {
-            const response = await axios.put(`https://backend-fyp-three.vercel.app/api/auth/resetpassword/${token}`,
+            const response = await axios.put(`http://localhost:5000/api/auth/resetpassword/${token}`,
                 values);
             if (response.status === 200) {
                 toast.success("Password updated successfully!");
