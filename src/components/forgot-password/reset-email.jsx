@@ -6,10 +6,10 @@ import Col from 'react-bootstrap/Col';
 import { TextField } from '../common/reusable';
 import { Formik } from 'formik';
 import { initialValuesEmail, validationSchemaEmail } from '../common/schema';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
+import axiosInstance from '../utils/interceptor';
 
 const Email = () => {
     const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ const Email = () => {
         // Here you would typically handle the form submission, e.g., sending a request to your backend
         setLoading(true);
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/forgotpassword",
+            const response = await axiosInstance.post("/api/auth/forgotpassword",
                 values);
             if (response.status === 200) {
                 toast.success("Reset link sent to your email!");

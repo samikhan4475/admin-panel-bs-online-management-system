@@ -9,8 +9,8 @@ import { Formik } from 'formik';
 import { initialValuesSignUp, validationSchemaSignUp } from '../common/schema';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import axios from 'axios';
 import React, { useState } from 'react';
+import axiosInstance from '../utils/interceptor';
 
 const SignupForm = () => {
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ const SignupForm = () => {
     const handleSubmit = async (values) => {
         setLoading(true);
         try {
-            const res = await axios.post("http://localhost:5000/api/auth/register",
+            const res = await axiosInstance.post("/api/auth/register",
                 values);
             if (res.status === 201) {
                 const { token, user: userData } = res.data;

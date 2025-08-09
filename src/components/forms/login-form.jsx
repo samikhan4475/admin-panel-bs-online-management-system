@@ -8,46 +8,38 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import { ActiveContext } from '../../App'; // Adjust the import path as necessary
 import 'react-toastify/dist/ReactToastify.css'; // Ensure toast styles are imported
+import axiosInstance from '../utils/interceptor';
 
 const LoginForm = () => {
     const { setUser } = useContext(ActiveContext);
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async (values) => {
-        setLoading(true);
-        try {
-            const res = await axios.post("http://localhost:5000/api/auth/login",
-                values);
-            if (res.status === 200) {
-                const { token, user: userData } = res.data;
-                setUser(userData);
-                localStorage.setItem('accessToken', token);
-                localStorage.setItem('user', JSON.stringify(userData));
-                toast.success('Login successful!');
-                navigate('/dashboard');
-            } else {
-                toast.error("Invalid username or password");
-            }
-        } catch (error) {
-            if (error.response) {
-                const message =
-                    error.response.data.message ||
-                    "Login failed. Please check your credentials.";
-                toast.error(message);
-            } else if (error.request) {
-                toast.error("No response from server. Please try again later.");
-            } else {
-                toast.error("An unexpected error occurred.");
-            }
-        } finally {
-            setLoading(false);
-        }
-    };
+ 
+const handleSubmit = async (values) => {
+  setLoading(true);
+  try {
+    const res = await axiosInstance.post('/api/auth/login', values);
+    if (res.status === 200) {
+      const { token, user: userData } = res.data;
+      setUser(userData);
+      localStorage.setItem('accessToken', token);
+      localStorage.setItem('user', JSON.stringify(userData));
+      toast.success('Login successful!');
+      navigate('/dashboard');
+    } else {
+      toast.error("Invalid username or password");
+    }
+  } catch (error) {
+    console.error(error);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
     return (
         <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '90vh' }}>

@@ -7,12 +7,12 @@ import Col from 'react-bootstrap/Col';
 import { TextField } from '../common/reusable';
 import { Formik } from 'formik';
 import { initialvaluesnewpassword, validationSchemanewpassword } from '../common/schema';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import axiosInstance from '../utils/interceptor';
 
 const NewPassword = () => {
     const { token } = useParams(); // Grab token from URL
@@ -24,7 +24,7 @@ const NewPassword = () => {
         setLoading(true);
         console.log('Form submitted with values:', values);
         try {
-            const response = await axios.put(`http://localhost:5000/api/auth/resetpassword/${token}`,
+            const response = await axiosInstance.put(`/api/auth/resetpassword/${token}`,
                 values);
             if (response.status === 200) {
                 toast.success("Password updated successfully!");
