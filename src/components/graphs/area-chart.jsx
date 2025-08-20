@@ -1,21 +1,19 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
+import './area-chart.css';   // ✅ import CSS
 
-// You'll need to define or import your series data
-// Here's an example dataset you can use if you don't have one:
+// Example dataset: Monthly student enrollments
 const sampleSeriesData = {
-    monthDataSeries1: {
-        prices: [
-            8107.85, 8128.0, 8122.9, 8165.5, 8340.7,
-            8423.7, 8423.5, 8514.3, 8481.85, 8487.7,
-            8506.9, 8626.2, 8668.95, 8602.3, 8607.55,
-            8512.9, 8496.25, 8600.65, 8881.1, 9340.85
+    admissions: {
+        counts: [
+            120, 150, 180, 200, 250,
+            300, 280, 320, 350, 400,
+            420, 450
         ],
         dates: [
-            "13 Nov 2017", "14 Nov 2017", "15 Nov 2017", "16 Nov 2017", "17 Nov 2017",
-            "20 Nov 2017", "21 Nov 2017", "22 Nov 2017", "23 Nov 2017", "24 Nov 2017",
-            "27 Nov 2017", "28 Nov 2017", "29 Nov 2017", "30 Nov 2017", "01 Dec 2017",
-            "04 Dec 2017", "05 Dec 2017", "06 Dec 2017", "07 Dec 2017", "08 Dec 2017"
+            "01 Jan 2025", "01 Feb 2025", "01 Mar 2025", "01 Apr 2025",
+            "01 May 2025", "01 Jun 2025", "01 Jul 2025", "01 Aug 2025",
+            "01 Sep 2025", "01 Oct 2025", "01 Nov 2025", "01 Dec 2025"
         ]
     }
 };
@@ -23,46 +21,65 @@ const sampleSeriesData = {
 const AreaChart = () => {
     const [state] = React.useState({
         series: [{
-            name: "STOCK ABC",
-            data: sampleSeriesData.monthDataSeries1.prices
+            name: "Enrollments",
+            data: sampleSeriesData.admissions.counts
         }],
         options: {
             chart: {
                 type: 'area',
                 height: 350,
-                zoom: {
-                    enabled: false
+                zoom: { enabled: false }
+            },
+            dataLabels: { enabled: false },
+            stroke: { curve: 'smooth', width: 3 },
+            title: {
+                text: 'Student Enrollment Trend (2025)',
+                align: 'center',
+                style: {
+                    fontSize: '18px',
+                    fontWeight: 'bold',
+                    color: '#4e73df'
                 }
             },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                curve: 'straight'
-            },
-            title: {
-                text: 'Fundamental Analysis of Stocks',
-                align: 'left'
-            },
             subtitle: {
-                text: 'Price Movements',
-                align: 'left'
+                text: 'Monthly Admissions Growth',
+                align: 'center',
+                style: {
+                    fontSize: '14px',
+                    color: '#6c757d'
+                }
             },
-            labels: sampleSeriesData.monthDataSeries1.dates,
+            labels: sampleSeriesData.admissions.dates,
             xaxis: {
                 type: 'datetime',
+                labels: {
+                    style: {
+                        fontSize: '12px',
+                        colors: '#374151'
+                    }
+                }
             },
             yaxis: {
-                opposite: true
+                title: {
+                    text: 'Students',
+                    style: {
+                        fontSize: '14px',
+                        color: '#374151'
+                    }
+                }
             },
             legend: {
-                horizontalAlign: 'left'
-            }
+                position: 'top',
+                horizontalAlign: 'center',
+                fontSize: '13px',
+                labels: { colors: '#374151' }
+            },
+            colors: ['#36b9cc']
         }
     });
 
     return (
-        <div>
+        <div className="area-chart-container">
             <div id="chart">
                 <ReactApexChart
                     options={state.options}

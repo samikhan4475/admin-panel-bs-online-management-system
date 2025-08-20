@@ -1,0 +1,26 @@
+.google-map-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.google-map-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.map-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #4e73df;
+  text-align: center;
+}
+
+.google-map-container #map {
+  border-radius: 16px;
+  overflow: hidden;
+}

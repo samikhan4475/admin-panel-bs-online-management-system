@@ -1,0 +1,40 @@
+.pie-chart-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+  /* Force full width */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.pie-chart-container #chart {
+  width: 100% !important;  /* Chart fills the container */
+  min-height: 350px;        /* Prevent chart collapse */
+  display: block;           /* Let ApexCharts handle rendering */
+  margin: 0 auto;           /* Center chart */
+}
+
+.apexcharts-title-text {
+  margin-bottom: 12px;
+  text-align: center;       /* Center the title */
+}
+
+.apexcharts-legend {
+  font-weight: 500 !important;
+  text-align: center;       /* Center the legend for better appearance */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pie-chart-container {
+    padding: 16px;
+  }
+
+  .pie-chart-container #chart {
+    min-height: 250px;
+  }
+}

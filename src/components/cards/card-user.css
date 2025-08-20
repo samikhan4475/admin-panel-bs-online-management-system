@@ -1,0 +1,80 @@
+/* Card styling */
+.user-card {
+  background-color: #f0f4f8;
+  border-radius: 20px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+/* Gradient header */
+.user-card-header {
+  background: linear-gradient(90deg, #6a1b9a, #8e24aa);
+  color: #fff;
+  border-radius: 15px 15px 0 0;
+  padding: 15px;
+}
+
+/* Header text */
+.user-card-header h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.user-card-header h5 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Table styling */
+.student-table-container {
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+.student-table {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.student-table th {
+  background-color: #e1bee7;
+  color: #4a148c;
+  font-weight: 600;
+  text-align: center;
+}
+
+.student-table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.student-table tr:hover {
+  background-color: #f3e5f5;
+  transition: 0.3s;
+}
+
+/* Badge */
+.badge {
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-card-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .user-card-header h5 {
+    font-size: 0.9rem;
+  }
+
+  .student-table th, .student-table td {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+}

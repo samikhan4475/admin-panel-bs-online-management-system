@@ -1,0 +1,39 @@
+.area-chart-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+  /* Ensure it uses full width of its parent */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.area-chart-container #chart {
+  width: 100% !important;   /* Force chart to fill container */
+  min-height: 350px;        /* Minimum height for proper display */
+}
+
+.apexcharts-title-text {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.apexcharts-subtitle-text {
+  margin-bottom: 12px;
+  color: #6c757d !important;
+  text-align: center;
+}
+
+/* Optional: make the chart responsive */
+@media (max-width: 768px) {
+  .area-chart-container {
+    padding: 10px;
+  }
+
+  .area-chart-container #chart {
+    min-height: 250px;
+  }
+}

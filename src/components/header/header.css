@@ -1,0 +1,42 @@
+.header-top {
+  background: linear-gradient(90deg, #14848c, #1b819a); /* Modern gradient */
+  color: #fff;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  flex-wrap: wrap;
+}
+
+.admin-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.admin-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Icons styling */
+.header-top .fs-5 {
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .admin-title {
+    font-size: 1.2rem;
+  }
+
+  .admin-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header-top {
+    justify-content: center;
+    text-align: center;
+  }
+}

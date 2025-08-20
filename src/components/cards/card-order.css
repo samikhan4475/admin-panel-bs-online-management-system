@@ -1,0 +1,233 @@
+/* container */
+.order-card-wrapper {
+  margin: 20px 0;
+  background: #f8f9fc;
+  padding-bottom: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* main header card */
+.order-card {
+  border-radius: 18px !important;
+  background: #ffffff !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+.order-card-header {
+  background: linear-gradient(135deg, #4e73df, #1cc88a) !important;
+  border-radius: 18px 18px 0 0 !important;
+  padding: 16px 20px;
+  color: #fff;
+}
+
+.order-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.order-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.order-card-body {
+  padding: 16px;
+}
+
+/* top stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 18px 0 24px;
+}
+
+.stats-card {
+  border-radius: 14px !important;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #eef1f7;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  text-align: left;
+}
+
+.stats-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+.stats-kpi-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.stats-kpi-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #4e73df;
+}
+
+/* charts */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.chart-card {
+  border-radius: 16px !important;
+  padding: 14px;
+  background: #ffffff;
+  border: 1px solid #eef1f7;
+}
+
+.chart-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* table blocks */
+.table-card {
+  border-radius: 16px !important;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #eef1f7;
+  margin-bottom: 16px;
+}
+
+.table th {
+  background: #f1f3f9;
+  vertical-align: middle;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 5px 8px;
+}
+
+/* recent section kept from your flow */
+.recent-orders-card {
+  background: #ffffff;
+  border: 1px solid #eef1f7;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.recent-orders-header {
+  background: #f8f9fc;
+  padding: 10px 15px;
+  border-bottom: 1px solid #e3e6f0;
+}
+.order-card-wrapper {
+  margin: 20px 0;
+  background: #f8f9fc;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* header card */
+.order-card {
+  border-radius: 18px !important;
+  background: linear-gradient(135deg, #4e73df, #1cc88a) !important;
+  color: white;
+}
+
+.order-card-header {
+  border-radius: 18px 18px 0 0 !important;
+  padding: 20px;
+}
+
+.order-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.order-value {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.order-card-body {
+  padding: 16px;
+}
+
+/* stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.stats-card {
+  border-radius: 14px !important;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.stats-kpi-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.stats-kpi-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #4e73df;
+}
+
+/* charts */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.chart-card {
+  border-radius: 16px !important;
+  padding: 15px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+.chart-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* table */
+.table-card {
+  border-radius: 16px !important;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+.table th {
+  background: #f1f3f9;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 5px 8px;
+}

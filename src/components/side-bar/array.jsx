@@ -9,29 +9,24 @@ const SideArray = [
         route: '/dashboard',
         icon: <BiSolidBank />
     },
-    {
-        id: 2,
-        Name: 'Orders',
-        route: '/order',
-        icon: <IoMdBeaker />
-    },
+    // {
+    //     id: 2,
+    //     Name: 'Enrollments',
+    //     route: '/order',
+    //     icon: <IoMdBeaker />
+    // },
     {
         id: 3,
         Name: 'Users',
         route: '/user',
         icon: <BsPeopleFill />
     },
-    {
-        id: 4,
-        Name: 'Products',
-        route: '/product',
-        icon: <BsClipboard2CheckFill />
-    },
-    {
-        id: 5,
-        Name: 'Analytics',
-        route: '/analytic',
-        icon: <BsFilterSquare />
-    },
+
+    // {
+    //     id: 5,
+    //     Name: 'Analytics',
+    //     route: '/analytic',
+    //     icon: <BsFilterSquare />
+    // },
 ];
 export { SideArray }

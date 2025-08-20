@@ -1,71 +1,93 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
+import './column-chart.css';   // ✅ import CSS
 
 const ColumnChart = () => {
     
-    const colors = ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0', '#00D9E9', '#FF66C3', '#5C5C5C'];
+    const colors = [
+        '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e',
+        '#e74a3b', '#9b59b6', '#2ecc71', '#ff66c3'
+    ];
     
     const [state] = React.useState({
-
         series: [{
-            data: [21, 22, 10, 28, 16, 21, 13, 30]
+            data: [320, 280, 210, 150, 130, 170, 200, 140]
         }],
         options: {
             chart: {
                 height: 350,
                 type: 'bar',
-                events: {
-                    click: function (chart, w, e) {
-                        // console.log(chart, w, e)
-                    }
+            },
+            title: {
+                text: 'Enrollments by Department',
+                align: 'center',
+                style: {
+                    fontSize: '18px',
+                    fontWeight: 'bold',
+                    color: '#4e73df'
                 }
             },
             colors: colors,
             plotOptions: {
                 bar: {
-                    columnWidth: '45%',
+                    columnWidth: '55%',
                     distributed: true,
+                    borderRadius: 6
                 }
             },
             dataLabels: {
-                enabled: false
+                enabled: true,
+                style: {
+                    fontSize: '13px',
+                    fontWeight: 'bold',
+                    colors: ['#111827']
+                }
             },
-            legend: {
-                show: false
-            },
+            legend: { show: false },
             xaxis: {
                 categories: [
-                    ['John', 'Doe'],
-                    ['Joe', 'Smith'],
-                    ['Jake', 'Williams'],
-                    'Amber',
-                    ['Peter', 'Brown'],
-                    ['Mary', 'Evans'],
-                    ['David', 'Wilson'],
-                    ['Lily', 'Roberts'],
+                    'Computer Science',
+                    'Business Admin',
+                    'Engineering',
+                    'Law',
+                    'English',
+                    'Economics',
+                    'Biology',
+                    'Mathematics'
                 ],
                 labels: {
                     style: {
                         colors: colors,
-                        fontSize: '12px'
+                        fontSize: '13px',
+                        fontWeight: 500
+                    }
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Students',
+                    style: {
+                        fontSize: '14px',
+                        color: '#374151'
                     }
                 }
             }
         },
-
-
     });
 
-
     return (
-        <div>
+        <div className="column-chart-container">
             <div id="chart">
-                <ReactApexChart options={state.options} series={state.series} type="bar" height={350} />
+                <ReactApexChart 
+                    options={state.options} 
+                    series={state.series} 
+                    type="bar" 
+                    height={350} 
+                />
             </div>
             <div id="html-dist"></div>
         </div>
     );
 }
-
 
 export { ColumnChart }

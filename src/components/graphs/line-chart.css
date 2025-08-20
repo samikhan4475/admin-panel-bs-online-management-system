@@ -1,0 +1,44 @@
+.line-chart-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+  /* Full width and box sizing */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  /* Flex removed, force block */
+  display: block;
+}
+
+.line-chart-container #chart {
+  width: 100% !important;      /* Fill container width */
+  height: 400px !important;    /* Fixed height for ApexCharts */
+  min-height: 400px;           /* Prevent collapse */
+  margin: 0 auto;              /* Center chart */
+  display: block;              /* Let chart render correctly */
+}
+
+.apexcharts-title-text,
+.apexcharts-subtitle-text {
+  text-align: center !important;
+}
+
+.apexcharts-data-labels {
+  font-weight: bold !important;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .line-chart-container {
+    padding: 16px;
+  }
+
+  .line-chart-container #chart {
+    height: 300px !important;
+    min-height: 300px;
+  }
+}
