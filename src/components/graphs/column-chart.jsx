@@ -27,13 +27,16 @@ const ColumnChart = () => {
   });
 
   return (
-    <Card className="column-chart-container">
+    <Card className="p-3">
+      <h4 style={{ fontWeight: "700", fontSize: "20px" }}>
+        Student Categories
+      </h4>
       <div className="donut">
         <Chart
           options={chartData.options}
           series={chartData.series}
           type="donut"
-          height={350}
+          height={312}
         />
       </div>
     </Card>

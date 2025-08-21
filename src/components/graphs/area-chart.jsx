@@ -62,7 +62,11 @@ const AreaChart = () => {
   });
 
   return (
-    <Card className="area-chart-container">
+    <Card className="p-3">
+      <h4 style={{ fontWeight: "700", fontSize: "20px" }}>
+        Applications Growth (2025)
+      </h4>
+
       <div id="chart">
         <ReactApexChart
           options={state.options}
