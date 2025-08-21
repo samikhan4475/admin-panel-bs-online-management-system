@@ -1,27 +1,13 @@
 .column-chart-container {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-
-  /* Ensure container takes full width */
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
+  gap: 20px;
+  padding: 20px;
 }
 
 .column-chart-container:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-}
-
-.column-chart-container #chart {
-  width: 100% !important; /* Force chart to fill container */
-  min-height: 350px; /* Minimum height for proper display */
 }
 
 .apexcharts-title-text {

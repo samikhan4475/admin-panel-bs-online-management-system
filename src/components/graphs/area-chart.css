@@ -1,21 +1,8 @@
 .area-chart-container {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 20px;
-  margin: 20px 0;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.area-chart-container #chart {
-  width: 100% !important; /* Force chart to fill container */
-  min-height: 350px; /* Minimum height for proper display */
+  padding: 20px;
 }
 
 .apexcharts-title-text {

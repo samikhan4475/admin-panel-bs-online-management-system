@@ -1,6 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 import "./area-chart.css"; // ✅ import CSS
+import { Card } from "react-bootstrap";
 
 // Example dataset: Monthly student enrollments
 const sampleSeriesData = {
@@ -34,28 +35,11 @@ const AreaChart = () => {
     options: {
       chart: {
         type: "area",
-        height: 350,
         zoom: { enabled: false },
       },
       dataLabels: { enabled: false },
       stroke: { curve: "smooth", width: 3 },
-      title: {
-        text: "Student Enrollment Trend (2025)",
-        align: "center",
-        style: {
-          fontSize: "18px",
-          fontWeight: "bold",
-          color: "#4e73df",
-        },
-      },
-      subtitle: {
-        text: "Monthly Admissions Growth",
-        align: "center",
-        style: {
-          fontSize: "14px",
-          color: "#6c757d",
-        },
-      },
+
       labels: sampleSeriesData.admissions.dates,
       xaxis: {
         type: "datetime",
@@ -66,15 +50,7 @@ const AreaChart = () => {
           },
         },
       },
-      yaxis: {
-        title: {
-          text: "Students",
-          style: {
-            fontSize: "14px",
-            color: "#374151",
-          },
-        },
-      },
+
       legend: {
         position: "top",
         horizontalAlign: "center",
@@ -86,9 +62,7 @@ const AreaChart = () => {
   });
 
   return (
-    <div className="area-chart-container">
-      <h5 className="m-0 p-2">Growth</h5>
-
+    <Card className="area-chart-container">
       <div id="chart">
         <ReactApexChart
           options={state.options}
@@ -97,8 +71,7 @@ const AreaChart = () => {
           height={350}
         />
       </div>
-      <div id="html-dist"></div>
-    </div>
+    </Card>
   );
 };
 
