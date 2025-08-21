@@ -37,7 +37,7 @@ const Header = ({ active, setActive }) => {
       {/* Existing search + hamburger row */}
       <Row className="p-3" style={{ backgroundColor: "" }}>
         <Col xs={10} md={9} className="d-flex align-items-center gap-2">
-          <Hamburger setActive={setActive} active={active} />
+          {/* <Hamburger setActive={setActive} active={active} /> */}
           {/* <CgSearch className="fs-5 text-secondary" /> */}
         </Col>
         <Col xs={2} md={3} className="d-flex align-items-center gap-2">

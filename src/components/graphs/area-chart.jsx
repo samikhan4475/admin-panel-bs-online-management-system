@@ -68,7 +68,7 @@ const AreaChart = () => {
           options={state.options}
           series={state.series}
           type="area"
-          height={350}
+          height={295}
         />
       </div>
     </Card>

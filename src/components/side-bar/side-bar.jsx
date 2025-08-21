@@ -25,12 +25,12 @@ const SideBar = ({ setActive, active }) => {
           className="d-flex gap-2 p-3"
           key={item.id}
           style={{
-            backgroundColor: active === item ? "#000" : "transparent",
+            backgroundColor: active?.id === item.id ? "#000" : "transparent",
             alignItems: "center",
             borderRadius: "10px",
           }}
         >
-          <div className="fs-4  text-white">{item.icon}</div>
+          <div className="fs-4 text-white">{item.icon}</div>
           <Link
             to={item.route}
             className="text-decoration-none text-white pt-1 fw-bold"

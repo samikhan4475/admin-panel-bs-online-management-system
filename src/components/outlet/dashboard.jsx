@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 import { ColumnChart } from "../graphs";
 import { AreaChart } from "../graphs";
 
@@ -8,7 +8,7 @@ import { OrderCard } from "../cards";
 import "./dasboard.css";
 const Dashboard = () => {
   return (
-    <div>
+    <div className="mb-3">
       <Row>
         <Col md={12}>
           <OrderCard showTable={false} showButton={false} />
@@ -25,7 +25,9 @@ const Dashboard = () => {
         </Col>
 
         <Col xs={12} md={6} className="mt-4">
-          <GoogleMaps />
+          <Card className="p-4">
+            <GoogleMaps />
+          </Card>
         </Col>
       </Row>
     </div>

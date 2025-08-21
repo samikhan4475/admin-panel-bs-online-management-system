@@ -1,53 +1,30 @@
 import React from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
-import "./google-map.css"; // ✅ import CSS
 
 const containerStyle = {
   width: "100%",
   height: "400px",
-  borderRadius: "16px",
+  borderRadius: "8px",
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523,
+  lat: 31.57342,
+  lng: 74.30367,
 };
 
-const GoogleMaps = () => {
+const MyComponent = () => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyAc8gk7qNtsjTFl1VlPVX2b5yMQI-qm6S8", // ⚠️ replace with your key
+    googleMapsApiKey: "AIzaSyAc8gk7qNtsjTFl1VlPVX2b5yMQI-qm6S8",
   });
 
-  const [, setMap] = React.useState(null);
-
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-    setMap(map);
-  }, []);
-
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null);
-  }, []);
-
   return isLoaded ? (
-    <div className="google-map-container">
-      <h3 className="map-title">University Location</h3>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={15}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        {/* Marker at center */}
-        <Marker position={center} />
-      </GoogleMap>
-    </div>
+    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={16}>
+      <Marker position={center} />
+    </GoogleMap>
   ) : (
-    <></>
+    <p>Loading...</p>
   );
 };
 
-export default React.memo(GoogleMaps);
+export default React.memo(MyComponent);
