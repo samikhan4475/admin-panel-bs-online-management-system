@@ -75,6 +75,9 @@ const LoginForm = () => {
                 variant="primary"
                 className="w-100 mt-3 d-flex justify-content-center align-items-center"
                 type="submit"
+                style={{
+                  background: "#567898",
+                }}
                 disabled={loading}
               >
                 {loading ? (
