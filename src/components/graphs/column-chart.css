@@ -2,9 +2,11 @@
   background: #ffffff;
   border-radius: 16px;
   padding: 24px;
-  margin: 20px 0;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 
   /* Ensure container takes full width */
   width: 100%;
@@ -18,18 +20,18 @@
 }
 
 .column-chart-container #chart {
-  width: 100% !important;  /* Force chart to fill container */
-  min-height: 350px;       /* Minimum height for proper display */
+  width: 100% !important; /* Force chart to fill container */
+  min-height: 350px; /* Minimum height for proper display */
 }
 
 .apexcharts-title-text {
   margin-bottom: 12px;
-  text-align: center;      /* Center title */
+  text-align: center; /* Center title */
 }
 
 .apexcharts-xaxis-label {
   font-weight: 500 !important;
-  font-size: 13px !important;  /* Optional: consistent font size */
+  font-size: 13px !important; /* Optional: consistent font size */
   color: #374151 !important;
   text-align: center;
 }

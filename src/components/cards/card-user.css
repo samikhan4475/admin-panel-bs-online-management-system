@@ -1,6 +1,5 @@
 /* Card styling */
 .user-card {
-  background-color: #f0f4f8;
   border-radius: 20px;
   padding: 15px;
   margin-bottom: 20px;
@@ -38,14 +37,17 @@
   border-radius: 12px;
   overflow: hidden;
   background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-.student-table th {
-  background-color: #e1bee7;
-  color: #4a148c;
+.student-table thead th {
+  background-color: #567898;
+  color: #fff;
   font-weight: 600;
+  position: sticky;
+  top: 0;
   text-align: center;
+  z-index: 2; /* keep above rows */
 }
 
 .student-table td {
@@ -73,7 +75,8 @@
     font-size: 0.9rem;
   }
 
-  .student-table th, .student-table td {
+  .student-table th,
+  .student-table td {
     font-size: 0.8rem;
     padding: 6px;
   }

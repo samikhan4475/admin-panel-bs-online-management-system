@@ -9,43 +9,37 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { ActiveContext } from "../../App"; // Adjust the import path as necessary
-import "react-toastify/dist/ReactToastify.css"; // Ensure toast styles are imported
-import axiosInstance from "../utils/interceptor";
+import { ActiveContext } from "../../App";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginForm = () => {
-  const { setUser } = useContext(ActiveContext);
+  const { setIsAuthenticated } = useContext(ActiveContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (values) => {
-    console.log(values, "values");
-    // setLoading(true);
-    // try {
-    //   const res = await axiosInstance.post("/api/admin/create-admin", values);
-    //   if (res.status === 200) {
-    //     const { token, user: userData } = res.data;
+  const handleSubmit = (values) => {
+    setLoading(true);
 
-    //     if (userData.role !== "admin") {
-    //       toast.error("You are not authorized to access the admin panel");
-    //       setLoading(false);
-    //       return;
-    //     }
+    // Fake authentication (replace with API call later)
+    if (values.email === "admin@gmail.com" && values.password === "1234") {
+      const fakeToken = "dummy_token_123";
+      const fakeUser = {
+        name: "Admin User",
+        email: values.email,
+        role: "admin",
+      };
 
-    //     setUser(userData);
-    //     localStorage.setItem("accessToken", token);
-    //     localStorage.setItem("user", JSON.stringify(userData));
+      // save in localStorage
+      localStorage.setItem("token", fakeToken);
+      localStorage.setItem("user", JSON.stringify(fakeUser));
+      setIsAuthenticated(true);
+      toast.success("Login successful!");
+      navigate("/dashboard");
+    } else {
+      toast.error("Invalid credentials!");
+    }
 
-    //     toast.success("Login successful!");
-    //     navigate("/dashboard");
-    //   } else {
-    //     toast.error("Invalid username or password");
-    //   }
-    // } catch (error) {
-    //   toast.error("Something went wrong during login");
-    // } finally {
-    //   setLoading(false);
-    // }
+    setLoading(false);
   };
 
   return (

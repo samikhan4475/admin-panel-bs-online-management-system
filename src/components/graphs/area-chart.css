@@ -5,15 +5,17 @@
   margin: 20px 0;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 
-  /* Ensure it uses full width of its parent */
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .area-chart-container #chart {
-  width: 100% !important;   /* Force chart to fill container */
-  min-height: 350px;        /* Minimum height for proper display */
+  width: 100% !important; /* Force chart to fill container */
+  min-height: 350px; /* Minimum height for proper display */
 }
 
 .apexcharts-title-text {

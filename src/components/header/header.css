@@ -1,7 +1,6 @@
 .header-top {
-  background: linear-gradient(90deg, #14848c, #1b819a); /* Modern gradient */
+  background: #567898; /* Modern gradient */
   color: #fff;
-  border-radius: 0 0 16px 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   flex-wrap: wrap;
 }
@@ -10,7 +9,6 @@
   width: 50px;
   height: 50px;
   object-fit: contain;
-  border-radius: 8px;
 }
 
 .admin-title {
